@@ -25,6 +25,13 @@ export default {
       checked: false
     }
   },
+  mounted () {
+    this.$axios({
+      url: '/api/login/cellphone?phone=13682585525&password=123456'
+    }).then((res) => {
+      console.log(res)
+    })
+  },
   components: {
   }
 }
