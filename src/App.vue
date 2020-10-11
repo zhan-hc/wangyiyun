@@ -16,4 +16,11 @@ html,body,#app{
  margin: 0;
  padding: 0;
 }
+.toasts{
+  background: #F0F0F0;
+  color:#000;
+  border-radius: 30px;
+  width: 710px;
+
+}
 </style>

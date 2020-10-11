@@ -4,7 +4,7 @@
     <i class="iconfont icon-wangyiyunyinle"></i>
   </div>
   <div class="Index-container">
-    <a class="Index-container-tel">手机号登录</a>
+    <a class="Index-container-tel" @click="checkbox">手机号登录</a>
     <a class="Index-container-in">立即体验</a>
     <div class="Index-container-way">
       <span class="iconfont" v-for="(item, index) in loginList" :class="item" :key="index"></span>
@@ -18,6 +18,8 @@
 </template>
 
 <script>
+// import { Login } from '@/utils/apiUrl.js'
+import { Toast } from 'mint-ui'
 export default {
   data () {
     return {
@@ -26,11 +28,24 @@ export default {
     }
   },
   mounted () {
-    this.$axios({
-      url: '/api/login/cellphone?phone=13682585525&password=123456'
-    }).then((res) => {
-      console.log(res)
-    })
+    // Login({
+    //   phone: '13682585525',
+    //   password: '123456'
+    // })
+    // checkLogin()
+  },
+  methods: {
+    checkbox () {
+      if (!this.checked) {
+        Toast({
+          message: '请先勾选同意《用户协议》《隐私政策》《儿童隐私政策》《中国移动服务协议》',
+          position: 'bottom',
+          className: 'toasts'
+        })
+      } else {
+        this.$router.push('PhoneLogin')
+      }
+    }
   },
   components: {
   }
@@ -70,6 +85,7 @@ export default {
       letter-spacing: 2px;
       font-weight: bold;
       padding: 20px 0;
+      text-decoration: none;
     }
     &-tel{
       margin: 0 auto 30px;

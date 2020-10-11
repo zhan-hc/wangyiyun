@@ -7,10 +7,12 @@ import './assets/icon/iconfont.css'
 import 'lib-flexible'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import Mint from 'mint-ui'
+import 'mint-ui/lib/style.css'
 import axios from 'axios'
 Vue.prototype.$axios = axios
 Vue.use(ElementUI)
-
+Vue.use(Mint)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
